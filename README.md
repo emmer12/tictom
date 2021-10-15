@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <p align="center"><img src="https://user-images.githubusercontent.com/396987/82162573-6940f500-98c7-11ea-974e-888b4f866c74.jpg" alt="Laravel Starter - A CMS like modular starter project built with Laravel"></p>
 
@@ -153,3 +154,7 @@ __Backend Dashboard__
 ---
 
 ![Edit-Posts-Laravel-Starter](https://user-images.githubusercontent.com/396987/88519360-d1bcf880-d013-11ea-9f6c-b5d33912057f.jpg)
+=======
+# tictom
+Tictom project
+>>>>>>> 8c47a924400147d2bbe100a5f63cb9415f174b91
