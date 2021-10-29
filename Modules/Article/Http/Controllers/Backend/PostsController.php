@@ -24,20 +24,22 @@ class PostsController extends Controller
 
     public function __construct()
     {
+
         // Page Title
         $this->module_title = 'Posts';
 
         // module name
         $this->module_name = 'posts';
-
+        
         // directory path of the module
         $this->module_path = 'posts';
-
+        
         // module icon
         $this->module_icon = 'fas fa-file-alt';
-
+        
         // module model name, path
         $this->module_model = "Modules\Article\Entities\Post";
+        
     }
 
     /**

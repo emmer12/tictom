@@ -9,16 +9,7 @@
     <div class="header bg-gradient-primary py-7 py-lg-8">
         <div class="container">
             <div class="header-body text-center mb-6">
-                <div class="row justify-content-center">
-                    <div class="col-xl-5 col-lg-6 col-md-8 px-5">
-                        <h1 class="text-white">
-                            @lang('Register')
-                        </h1>
-                        <p class="text-lead text-white">
-                            @lang("Please fill up the form below to register.")
-                        </p>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <div class="separator separator-bottom separator-skew zindex-100">
@@ -34,7 +25,7 @@
             <div class="col-lg-6 col-md-8">
                 <div class="card bg-secondary border border-soft">
 
-                    @include('auth.social_login_buttons')
+                    {{-- @include('auth.social_login_buttons') --}}
 
                     <div class="card-body px-lg-5 py-lg-5">
                         <div class="text-center text-muted mb-4">
@@ -141,3 +132,15 @@
 </div>
 
 @endsection
+
+
+
+@push('after-styles')
+    <style>
+        .bg-gradient-primary{
+            background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.4) ),url(/img/cover-01.jpg) !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+    </style>
+@endpush

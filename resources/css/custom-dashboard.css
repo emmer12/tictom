@@ -1,0 +1,25 @@
+
+/* a{
+    color:#161d42 !important;
+}
+
+a:hover{
+    color:#34469d !important;
+} */
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #161d42;
+    border-color: #161d42;
+    /* box-shadow: 0 0.125rem 0.25rem rgba(13, 20, 49, 0.07); */
+}
+
+
+.bg-primary{
+    background-color:#161d42 !important
+}
+
+.btn-primary:hover{
+    background-color: #061430 !important;
+    border-color: #061430 !important;
+}

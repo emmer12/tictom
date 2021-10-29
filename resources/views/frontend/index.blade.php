@@ -6,25 +6,44 @@
 
 <section class="section-header pb-6 pb-lg-10 bg-primary text-white">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-10 text-center">
-                <h1 class="display-1 mb-4">{{app_name()}}</h1>
+        <div class="row ">
+            <div class="col-12 col-md-6">
+                <h1 class="display-3 mb-4">We give you latest and genue coin out there</h1>
                 <p class="lead text-muted">
                     {!! setting('meta_description') !!}
                 </p>
 
+                <a href="#" class="btn btn-outline-white animate-up-2 mr-3"><i class="fas fa-th-large mr-2"></i>Get Started</a>
+                <a href="#" class="btn btn-outline-white animate-up-2 mr-3">Go</a>
                 @include('frontend.includes.messages')
+            </div>
+
+            <div class="col-12 col-md-6">
+                Hello
             </div>
         </div>
     </div>
     <div class="pattern bottom"></div>
 </section>
 
+
+<section>
+    <div class="container">
+    <h2 class="mb-4 mb-lg-5 ">Trending Token</h2>
+
+
+    </div>
+
+
+</section>
+
+
+
 <section class="section section-ld">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2 class="mb-4 mb-lg-5">Backend pages</h2>
+                <h2 class="mb-4 mb-lg-5 ">Backend pages Edited</h2>
             </div>
             <div class="col-6 col-sm-4 mb-5">
                 <a href="#" class="page-preview scale-up-hover-2">

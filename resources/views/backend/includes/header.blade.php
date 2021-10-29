@@ -12,7 +12,7 @@
     </ul>
 
     <ul class="c-header-nav ml-auto mr-4">
-        <li class="c-header-nav-item dropdown d-md-down-none mx-2">
+        {{-- <li class="c-header-nav-item dropdown d-md-down-none mx-2">
             <a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 <i class="c-icon cil-language"></i>&nbsp; {{strtoupper(App::getLocale())}}
             </a>
@@ -28,7 +28,7 @@
                     English (EN)
                 </a>
             </div>
-        </li>
+        </li> --}}
         <li class="c-header-nav-item dropdown d-md-down-none mx-2">
             <?php
             $notifications = optional(auth()->user())->unreadNotifications;
