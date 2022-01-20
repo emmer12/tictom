@@ -38,7 +38,7 @@ class AuthenticatedSessionController extends Controller
         if ($redirectTo) {
             return redirect($redirectTo);
         } else {
-            return redirect(RouteServiceProvider::HOME);
+            return redirect(RouteServiceProvider::MEMBER);
         }
     }
 

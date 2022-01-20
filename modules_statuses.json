@@ -2,5 +2,7 @@
     "Article": true,
     "Tag": true,
     "Comment": true,
-    "Member": true
+    "Member": true,
+    "Token": true,
+    "Veter": true
 }

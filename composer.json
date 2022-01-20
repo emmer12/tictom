@@ -14,6 +14,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "hashids/hashids": "^4.0",
         "laracasts/flash": "^3.2",
+        "laravel/cashier": "^13.7",
         "laravel/framework": "^8.0",
         "laravel/slack-notification-channel": "^2.2",
         "laravel/socialite": "^5.0",

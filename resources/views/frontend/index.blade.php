@@ -1,82 +1,183 @@
 @extends('frontend.layouts.app')
 
-@section('title') {{app_name()}} @endsection
+@section('title') {{ app_name() }} @endsection
 
 @section('content')
 
-<section class="section-header pb-6 pb-lg-10 bg-primary text-white">
-    <div class="container">
-        <div class="row ">
-            <div class="col-12 col-md-6">
-                <h1 class="display-3 mb-4">We give you latest and genue coin out there</h1>
-                <p class="lead text-muted">
-                    {!! setting('meta_description') !!}
-                </p>
+    @include('frontend.includes.hero')
 
-                <a href="#" class="btn btn-outline-white animate-up-2 mr-3"><i class="fas fa-th-large mr-2"></i>Get Started</a>
-                <a href="#" class="btn btn-outline-white animate-up-2 mr-3">Go</a>
-                @include('frontend.includes.messages')
+
+    <div class="container">
+        <section>
+            <div class="header">
+                <h4>Top Vertor</h4>
             </div>
 
-            <div class="col-12 col-md-6">
-                Hello
+            <div class="slider">
+                @forelse (['1','2', '3','4','5'] as $item)
+                    @component('components.vetor-card', ['vetor' => $item])@endcomponent
+                @empty
+                    Empty
+                @endforelse
+            </div>
+        </section>
+    </div>
+    <div class="spacer"></div>
+
+    <section class="section-become">
+        <div class="container">
+            @component('components.become')@endcomponent
+        </div>
+    </section>
+
+
+    <div class="spacer"></div>
+
+
+
+    <section class="section-vetor">
+        <div class="container">
+            <div class="header">
+                <h4>Top Vertor</h4>
+            </div>
+
+            <div class="slider">
+                @forelse (['1','2', '3','4','5'] as $item)
+                    @component('components.vet-card')@endcomponent
+                @empty
+                    Empty
+                @endforelse
             </div>
         </div>
-    </div>
-    <div class="pattern bottom"></div>
-</section>
-
-
-<section>
-    <div class="container">
-    <h2 class="mb-4 mb-lg-5 ">Trending Token</h2>
-
-
-    </div>
-
-
-</section>
+    </section>
 
 
 
-<section class="section section-ld">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="mb-4 mb-lg-5 ">Backend pages Edited</h2>
+
+    {{-- <section>
+
+        <div class="container">
+            <br>
+            <section class="trending">
+                @component('components.trending-card', ['type' => 0])@endcomponent
+                @component('components.trending-card', ['type' => 1])@endcomponent
+                @component('components.trending-card', ['type' => 2])@endcomponent
+            </section>
+
+            <br><br>
+
+            <api></api>
+            <div>
+                <table class="table table-trending table-hover table-responsive-sm table-strip">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Token Name</th>
+                            <th>Chain</th>
+                            <th>Symbol</th>
+                            <th>Starting market Cap</th>
+                            <th>Market Cap</th>
+                            <th>Price</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($tokens as $index=>$token)
+                            <tr>
+                                <td>{{ $index + 1 }} </td>
+                                <td>{{ $token->token_name }} </td>
+                                <td>{{ $token->network }} </td>
+                                <td>{{ $token->symbol }} </td>
+                                <td>{{ $token->smc }} </td>
+                                <td>{{ $token->token_name }} </td>
+                                <td valign="top">
+                                    <api address={{ $token->address }}></api>
+                                </td>
+
+
+                            </tr>
+                        @empty
+                            <div>Empty</div>
+                        @endforelse
+                    </tbody>
+                </table>
             </div>
-            <div class="col-6 col-sm-4 mb-5">
-                <a href="#" class="page-preview scale-up-hover-2">
-                    <img class="shadow-lg rounded scale" src="https://user-images.githubusercontent.com/396987/88489727-f3889200-cfb7-11ea-819f-dc9a52bc8d82.jpg"
-                        alt="Landing page preview">
-                    <div class="text-center show-on-hover">
-                        <h6 class="m-0 text-center text-white">Dashboard<i
-                                class="fas fa-external-link-alt ml-2"></i></h6>
-                    </div>
-                </a>
-            </div>
-            <div class="col-6 col-sm-4 mb-5">
-                <a href="#" class="page-preview scale-up-hover-2">
-                    <img class="shadow-lg rounded scale" src="https://user-images.githubusercontent.com/396987/88519250-a0dcc380-d013-11ea-9dc5-9d731af611f1.jpg"
-                        alt="About page preview">
-                    <div class="text-center show-on-hover">
-                        <h6 class="m-0 text-center text-white">Posts List <i
-                                class="fas fa-external-link-alt ml-2"></i></h6>
-                    </div>
-                </a>
-            </div>
-            <div class="col-6 col-sm-4 mb-5">
-                <a href="#" class="page-preview scale-up-hover-2">
-                    <img class="shadow-lg rounded scale" src="https://user-images.githubusercontent.com/396987/88519360-d1bcf880-d013-11ea-9f6c-b5d33912057f.jpg"
-                        alt="Pricing page preview">
-                    <div class="text-center show-on-hover">
-                        <h6 class="m-0 text-center text-white">Posts Edit <i
-                                class="fas fa-external-link-alt ml-2"></i></h6>
-                    </div>
-                </a>
-            </div>
+
+
         </div>
-    </div>
-</section>
+
+
+    </section> --}}
+
+
+
 
 @endsection
+
+@push('after-styles')
+    <style>
+        .trending {
+            display: flex
+        }
+
+        .table-trending tr {
+            background: #000012;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .slider {
+            width: 100%;
+            text-align: center;
+            display: flex
+        }
+
+    </style>
+@endpush
+
+@push('after-scripts')
+
+
+    <script>
+        // $(".slider").slick({
+        //     centerMode: true,
+        //     infinite: true,
+        //     autoplay: true
+        // });
+
+        const createSlick = () => {
+            $('.slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                slidesPerRow: 1,
+                type: 'inline',
+                // asNavFor: '.slider-for',
+                // dots: true,
+                focusOnSelect: true,
+                rows: 1,
+                responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                            adaptiveHeight: true,
+                            rows: 1,
+                        },
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            // adaptiveHeight: true,
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            rows: 1,
+                        },
+                    },
+                ],
+            });
+
+        }
+        createSlick();
+
+        $(window).on('resize orientationchange', createSlick);
+    </script>
+@endpush

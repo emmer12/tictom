@@ -29,12 +29,12 @@
     <x-google-analytics config="{{ setting('google_analytics') }}" />
 </head>
 
-<body class="bg-white">
+<body >
 
     <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="{{asset('img/logo-with-text.jpg')}}" height="30">
+                <img src="{{asset('img/logo.png')}}" height="30">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -99,14 +99,7 @@
                             <span class="nav-link-inner--text d-lg-none">Github</span>
                         </a>
                     </li>
-                    <li class="nav-item d-none d-lg-block ml-lg-4">
-                        <a href="#" target="_blank" class="btn btn-neutral btn-icon">
-                            <span class="btn-inner--icon">
-                                <i class="fas fa-paper-plane mr-2"></i>
-                            </span>
-                            <span class="nav-link-inner--text">Upgrade to Pro</span>
-                        </a>
-                    </li>
+                   
                 </ul>
             </div>
         </div>

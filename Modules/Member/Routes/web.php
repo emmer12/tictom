@@ -25,5 +25,5 @@ Route::group(['as' => 'member.', 'middleware' => 'web', 'prefix' => 'member'], f
 
     $controller_name = 'MemberController';
     $module_name = 'member';
-    Route::get('/', ['as' => "index", 'uses' => "$controller_name@index",'middleware' => ['auth']]);
+    Route::get('/', ['as' => "index", 'uses' => "$controller_name@index",'middleware' => ['auth','verified']]);
 });

@@ -1,0 +1,13 @@
+{
+    "name": "Veter",
+    "alias": "veter",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Veter\\Providers\\VeterServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

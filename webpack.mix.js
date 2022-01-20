@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const path = require('path');
 
 mix.js('resources/js/app.js', 'public/js').vue().postCss('resources/css/app.css', 'public/css', [
     require('postcss-import'),
@@ -36,6 +37,7 @@ mix.styles(
     [
         "public/css/backend-theme.css",
         "node_modules/@coreui/icons/css/all.css",
+        "public/vendor/impact-design/front/css/front.css",
         "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
         "resources/css/custom-backend.css"
     ],
@@ -84,7 +86,7 @@ mix.scripts(
         "node_modules/jarallax/dist/jarallax.min.js",
         "node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js",
         "public/vendor/impact-design/front/assets/js/front.js",
-        "resources/js/custom-frontend.js"
+        // "resources/js/custom-frontend.js"
     ],
     "public/js/frontend.js"
 );
@@ -120,3 +122,13 @@ mix.scripts(
 if (mix.inProduction()) {
     mix.version();
 }
+
+
+mix.webpackConfig({
+    resolve:{
+        extensions:['.js','.vue'],
+        alias:{
+            '~@':path.resolve(__dirname,'resources/js/')
+        }
+    }
+})

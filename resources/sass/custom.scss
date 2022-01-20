@@ -1,5 +1,176 @@
-.custom-1{
-    background-color: red;
-    position: absolute;
-    top:0px
+$primary: #356987;
+$primary-text: #1b75a9;
+$secondary: #ee5050;
+$black: #000;
+$white: #fff;
+$primary-dark-text: #020723;
+
+//** HERO SECTION  **//
+
+.hero {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(
+        rgba(21, 60, 90, 0.59) 5%,
+        rgba(255, 255, 255, 1) 25%,
+        rgba(255, 255, 255, 0.5) 70%
+    );
+
+    .content {
+        height: 100%;
+        display: flex;
+        .details {
+            width: 50%;
+            margin: auto;
+            .contain {
+                margin-top: auto;
+                margin-left: 120px;
+
+                h1 {
+                    font-size: 3.8rem;
+                    font-weight: 700;
+                    line-height: 61px;
+                }
+            }
+        }
+
+        .illustration {
+            width: 50%;
+            margin: auto;
+        }
+    }
+}
+
+//** NAV BAR SECTION  **//
+
+.navbar-main {
+    position: absolute !important;
+    .navbar-nav {
+        .nav-link {
+            color: #021e01 !important;
+            font-weight: 700;
+        }
+    }
+}
+
+//** Golbal Header **//
+
+.header {
+    margin: 10px 0px;
+
+    h1,
+    h4 {
+        font-size: 42px;
+        line-height: 130%;
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+
+        &::after {
+            content: "";
+            height: 2px;
+            width: 100px;
+            background: $primary;
+            border-radius: 3px;
+            position: absolute;
+            bottom: -3px;
+            right: 0px;
+            box-shadow: 28px 4px 0px rgba($color: $primary, $alpha: 0.5);
+        }
+    }
+
+    h4 {
+        font-size: 24px;
+    }
+}
+
+//** Slick Header **//
+.slick-track{
+    display:flex !important;
+}
+.slick-list {
+    padding: 20px 15px !important;
+    overflow-y: hidden;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: $primary !important;
+}
+
+//** Home Page **//
+
+.section-become {
+    background: #fafafa;
+    height: 300px;
+    display: flex;
+    align-items: center;
+}
+
+//** Footer **//
+
+.footer {
+    background: #00010a;
+
+    h6 {
+        color: #fff;
+        font-weight: 700;
+    }
+
+    p,
+    a,
+    small {
+        color: rgba($color: #fff, $alpha: 0.7);
+    }
+}
+
+//** Mobile Style**//
+
+// Mobile
+@media (max-width: 640px) {
+    .hero {
+        margin-bottom: 50px;
+        .content {
+            flex-direction: column-reverse;
+            .details {
+                width: 100%;
+                padding: 10px;
+                margin: initial;
+                .contain {
+                    margin-left: 10px;
+                    h1 {
+                        font-size: 1.8rem;
+                        line-height: 31px;
+                    }
+                }
+            }
+
+            .illustration {
+                width: 100%;
+                margin: initial;
+            }
+        }
+    }
+}
+
+// Tab
+
+@media (min-width: 641.98px) and (max-width: 900.98px) {
+    .hero {
+        .content {
+            .details {
+                .contain {
+                    margin-left: 50px;
+                    h1 {
+                        font-size: 2.8rem;
+                        line-height: 40px;
+                    }
+                }
+
+                .illustration {
+                    width: 50%;
+                }
+            }
+        }
+    }
 }

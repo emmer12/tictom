@@ -110,4 +110,34 @@
     </div>
 </div>
 
+@push('after-styles')
+    <style>
+        .bg-gradient-primary {
+            background: var(--primary) !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+
+        .header-body h1 {
+            color: white;
+            position: relative;
+            display: inline;
+        }
+
+        
+
+        @keyframes grow{
+            0%{
+                width: 0px;
+            },
+            100%{
+                width:100px
+            }
+        }
+
+    </style>
+@endpush
+
+
 @endsection
+

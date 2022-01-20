@@ -3,19 +3,23 @@
     class="side-bar flex flex-col justify-between sticky1"
     :class="{ added: true }"
   >
-    <div class="profile-area flex flex-col justify-center items-center " v-show="true">
-        <img src="/img/avatars/6.jpg" class="rounded-full w-32 h-32 flex-center" />
-        <h1 class="text-base font-semibold mt-2 mb-1 ">Emmanuel Taiwo</h1>
-        <div class="flex">
-            <span class="font-medium mr-2">20 Follower </span> |
-            <span class="font-medium ml-2">2 Following </span>
-        </div>
-        
+    <div
+      class="profile-area flex flex-col justify-center items-center"
+      v-show="true"
+    >
+      <img
+        src="/img/avatars/6.jpg"
+        class="rounded-full w-32 h-32 flex-center"
+      />
+      <h1 class="text-base font-semibold mt-2 mb-1">Emmanuel Taiwo</h1>
+      <div class="flex">
+        <span class="font-medium mr-2">20 Follower </span> |
+        <span class="font-medium ml-2">2 Following </span>
+      </div>
     </div>
 
-
     <div class="menu">
-      <div v-for="(item, index) in menu" :key="index">
+      <div v-for="(item, index) in permitMenu" :key="index">
         <div v-if="item.child && item.child.length > 0">
           <div
             class="item flex justify-between items-center"
@@ -41,13 +45,11 @@
               <div v-for="(child, index) in item.child" :key="'child-' + index">
                 <a v-if="child.external" :href="child.href">
                   <div class="block item item-child">
-                    <i class="fa fa-angle-right"></i>
                     {{ child.title }}
                   </div>
                 </a>
                 <router-link v-else :to="child.href" tag="div">
                   <div class="block item item-child">
-                    <i class="fa fa-angle-right"></i>
                     {{ child.title }}
                   </div>
                 </router-link>
@@ -89,6 +91,7 @@ export default {
   data() {
     return {
       showIndex: null,
+      permission: [],
     };
   },
   methods: {
@@ -130,13 +133,22 @@ export default {
         }
       }
     }, 200);
+    this.permission = window.permission;
+  },
+  computed: {
+    permitMenu() {
+      let canCreate = this.permission.some((data) => data === "create_signal");
+      console.log(this.permission)
+      return this.menu.filter(
+        (data) => (data.guard == "veter" && canCreate) || data.guard !== "veter"
+      );
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-$primary:#161d42;
-
+$primary: #161d42;
 
 .side-bar {
   width: 19%;
@@ -153,10 +165,18 @@ $primary:#161d42;
   flex-basis: 280px;
   width: 280px;
   border-radius: 10px;
+
+  a {
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
   &.fixed {
-     position: -webkit-sticky; /* for Safari */
+    position: -webkit-sticky; /* for Safari */
     position: sticky;
     top: 100px;
+    z-index: 0;
     align-self: flex-start;
   }
 
@@ -164,7 +184,7 @@ $primary:#161d42;
     max-height: 90%;
     overflow-y: auto;
 
-     &::-webkit-scrollbar {
+    &::-webkit-scrollbar {
       width: 10px;
       background: #ebedef;
     }
@@ -176,7 +196,7 @@ $primary:#161d42;
     .item {
       color: #464646;
       border-bottom: 1px solid #f3f4f6;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       padding: 10px;
       font-size: 14px;
@@ -195,7 +215,6 @@ $primary:#161d42;
         border-top-left-radius: 50px;
         border-bottom-left-radius: 50px;
       }
-      
     }
 
     .child-item-container {

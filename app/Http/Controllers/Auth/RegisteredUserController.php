@@ -11,6 +11,10 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Veter;
+use App\Models\Permission;
+
+
 
 class RegisteredUserController extends Controller
 {
@@ -38,9 +42,16 @@ class RegisteredUserController extends Controller
         $request->validate([
             'first_name' => 'required|string|max:191',
             'last_name'  => 'required|string|max:191',
+            'username'  => 'required|string|max:191',
             'email'      => 'required|string|email|max:191|unique:users',
             'password'   => 'required|string|confirmed|min:8',
         ]);
+
+        if ($request->vendor) {
+            $request->validate([
+                'trading_experience' => 'required|string|max:191',
+            ]);
+        }
 
         $user = User::create([
             'first_name' => $request->first_name,
@@ -51,8 +62,25 @@ class RegisteredUserController extends Controller
             'password'   => Hash::make($request->password),
         ]);
 
-        // username
-        // $username = config('app.initial_username') + $user->id;
+
+        if ($request->venter) {
+            
+            $venter = Veter::create([
+                'trading_experience' => $request->trading_experience,
+                'user_id' => $user->id,
+                'created_at' => date('Y-m-d H:i'),
+                'updated_at' => date('Y-m-d H:i'),
+            ]);
+
+            
+
+            $venter->save();
+
+           $this->createVentorPermission();
+            
+            $user->givePermissionTo(['create_signal','edit_signal', 'delete_signal','create_vet','edit_vet','delete_vet']);
+        }
+
         $user->save();
 
         event(new UserRegistered($user));
@@ -60,8 +88,16 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
+        return redirect(RouteServiceProvider::MEMBER);
+    }
 
-
-        return redirect(RouteServiceProvider::HOME);
+    private function createVentorPermission()
+    {
+        Permission::firstOrCreate(['name' => 'create_signal']);
+        Permission::firstOrCreate(['name' => 'edit_signal']);
+        Permission::firstOrCreate(['name' => 'delete_signal']);
+        Permission::firstOrCreate(['name' => 'create_vet']);
+        Permission::firstOrCreate(['name' => 'edit_vet']);
+        Permission::firstOrCreate(['name' => 'delete_signal']);
     }
 }

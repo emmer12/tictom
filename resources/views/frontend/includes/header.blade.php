@@ -1,16 +1,16 @@
 <header class="header-global">
-    <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg headroom py-lg-3 px-lg-6 navbar-dark navbar-theme-primary bg-primary">
+    <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg headroom py-lg-3 px-lg-6 navbar-dark navbar-theme-primary bg-primary-12">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img class="navbar-brand-dark common" src="{{asset('img/backend-logo.jpg')}}" height="35" alt="Logo light">
-                <img class="navbar-brand-light common" src="{{asset('img/backend-logo.jpg')}}" height="35" alt="Logo dark">
+                <img class="navbar-brand-dark common" src="{{asset('img/logo.png')}}" height="35" alt="Logo light">
+                <img class="navbar-brand-light common" src="{{asset('img/logo.png')}}" height="35" alt="Logo dark">
             </a>
             <div class="navbar-collapse collapse" id="navbar_global">
                 <div class="navbar-collapse-header">
                     <div class="row">
                         <div class="col-6 collapse-brand">
                             <a href="/">
-                                <img src="{{asset('img/backend-logo.jpg')}}" height="35" alt="Logo Impact">
+                                <img src="{{asset('img/logo.png')}}" height="35" alt="Logo Impact">
                             </a>
                         </div>
                         <div class="col-6 collapse-close">
@@ -23,86 +23,29 @@
                 <ul class="navbar-nav navbar-nav-hover justify-content-center">
                     <li class="nav-item nav-custom active">
                         <a href="/" class="nav-link">
-                            <span class="fas fa-home mr-2"></span> Home
-                        </a>
-                    </li>
-                    <li class="nav-item nav-custom">
-                        <a href="{{ route('frontend.posts.index') }}" class="nav-link">
-                            <span class="fas fa-file-alt mr-1"></span> Creator
+                          Home
                         </a>
                     </li>
 
-                    <li class="nav-item nav-custom">
-                        <a href="{{ route('frontend.posts.index') }}" class="nav-link">
-                            <span class="fas fa-file-alt mr-1"></span> Trending News
+                    <li class="nav-item nav-custom ">
+                        <a href="/" class="nav-link">
+                          Veters
                         </a>
                     </li>
-
-
-                    <li class="nav-item nav-custom dropdown">
-                        <a href="#" class="nav-link" data-toggle="dropdown" aria-controls="pages_submenu" aria-expanded="false" aria-label="Toggle pages menu item">
-                            <span class="nav-link-inner-text">
-                                <span class="fas fa-file-image mr-1"></span>
-                                Company
-                            </span>
-                            <span class="fas fa-angle-down nav-link-arrow ml-2"></span>
+                    <li class="nav-item nav-custom ">
+                        <a href="/" class="nav-link">
+                          Vets
                         </a>
-                        <ul class="dropdown-menu" id="pages_submenu">
-                            <li>
-                                <a class="dropdown-item" href="{{ route('frontend.posts.index') }}">
-                                    <span class="fas fa-file-alt mr-1"></span> Blog
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{ route('frontend.posts.index') }}">
-                                    <span class="fas fa-file-alt mr-1"></span> About
-                                </a>
-                            </li>
-                        </ul>
                     </li>
-
-
-                    {{-- <li class="nav-item dropdown">
-                        <a href="#" class="nav-link" data-toggle="dropdown" aria-controls="pages_submenu" aria-expanded="false" aria-label="Toggle pages menu item">
-                            <span class="nav-link-inner-text">
-                                <span class="fas fa-file-image mr-1"></span>
-                                Pages
-                            </span>
-                            <span class="fas fa-angle-down nav-link-arrow ml-2"></span>
-                        </a>
-                        <ul class="dropdown-menu" id="pages_submenu">
-                            <li>
-                                <a class="dropdown-item" href="{{ route('frontend.posts.index') }}">
-                                    <span class="fas fa-file-alt mr-1"></span> Posts
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{ route('frontend.categories.index') }}">
-                                    <span class="fas fa-sitemap mr-1"></span> Categories
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{ route('frontend.tags.index') }}">
-                                    <span class="fas fa-tags mr-1"></span> Tags
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{ route('frontend.comments.index') }}">
-                                    <span class="fas fa-comments mr-1"></span> Comments
-                                </a>
-                            </li>
-                        </ul>
-                    </li> --}}
-                   
                 </ul>
             </div>
             <div class="d-none d-lg-block">
 
                 @auth
-                <li class="nav-item dropdown">
+                <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" aria-expanded="false" data-toggle="dropdown">
-                        <span class="nav-link-inner-text mr-1">
-                            <span class="fas fa-user mr-1"></span>
+                        <span class="nav-link-inner-text mr-1 mt-1 text-gray-100">
+                            <span class="fas fa-user mr-1 text-gray-100"></span>
                             Account
                         </span>
                         <i class="fas fa-angle-down nav-link-arrow"></i>
@@ -121,6 +64,19 @@
                                         <span class="small">View profile details!</span>
                                     </div>
                                 </a>
+
+                                @can('view_backend')
+                                <a href="{{ route('member.index') }}"
+                                    class="list-group-item list-group-item-action d-flex align-items-center p-0 py-3 px-lg-4">
+                                    <span class="icon icon-sm icon-success"> <i class="fas fa-tachometer-alt mr-2"></i></span>
+                                    <div class="ml-4">
+                                        <span class="text-dark d-block">
+                                            Dashboard
+                                        </span>
+                                        <span class="small">View dahboard</span>
+                                    </div>
+                                </a>
+                                @endcan
                                 <a href="{{ route('logout') }}"
                                     class="list-group-item list-group-item-action d-flex align-items-center p-0 py-3 px-lg-4" onclick="event.preventDefault(); document.getElementById('account-logout-form').submit();">
                                     <span class="icon icon-sm icon-secondary">
@@ -163,18 +119,16 @@
                             </div>
                         </div>
                     </div>
-                </li>
+                </div>
                 @endauth
 
 
 
-                @can('view_backend')
-                <a href="{{ route('backend.dashboard') }}" class="btn btn-white animate-up-2 mr-3"><i class="fas fa-tachometer-alt mr-2"></i> Dashboard</a>
-                @endcan
+                @guest
+                <a href="{{route('login')}}" class="btn btn-outline-white animate-up-2 mr-3"><i class="fas fa-th-large mr-2"></i> Signin</a>
+                <a href="{{route('register')}}" target="_blank" class="btn btn-secondary animate-up-2"><i class="fas fa-paper-plane mr-2"></i> Join</a>
+                @endguest
 
-                <a href="#" class="btn btn-outline-white animate-up-2 mr-3"><i class="fas fa-th-large mr-2"></i> Signin</a>
-
-                <a href="#" target="_blank" class="btn btn-secondary animate-up-2"><i class="fas fa-paper-plane mr-2"></i> Join</a>
             </div>
             <div class="d-flex d-lg-none align-items-center">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>

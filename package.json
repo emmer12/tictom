@@ -38,12 +38,16 @@
         "sticky-sidebar": "^3.3.1",
         "tailwindcss": "^1.8.0",
         "vue": "^2.6.11",
-        "vue-loader": "^15.9.7",
+        "vue-loader": "^15.9.8",
         "vue-template-compiler": "^2.6.11",
         "waypoints": "^4.0.1"
     },
     "dependencies": {
+        "@stripe/stripe-js": "^1.22.0",
+        "moralis": "0.0.151",
+        "vee-validate": "^3.4.14",
+        "vue-js-modal": "^2.0.1",
         "vue-router": "^3.5.3",
-        "vue-toast-notification": "^2.0.1"
+        "vue-toast-notification": "^0.6.2"
     }
 }

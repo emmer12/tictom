@@ -1,6 +1,6 @@
 export default  [
     {
-        href: '/member',
+        href: '/',
         title: 'Dashboard',
         icon: 'fa fa-tachometer-alt'
     },
@@ -9,24 +9,34 @@ export default  [
         icon: 'fa fa-user',
         child: [
             {
-                href: '/member/request-payout',
+                href: '/tokens',
                 title: 'Listed Tokens',
                 external:false
-
             },
             {
-                href: '/member/transactions',
+                href: '/tokens/list',
                 title: 'List Token',
                 external:false
-
             },
 
+        ]
+    },
+    {
+        title: 'Vet',
+        icon: 'fa fa-bullhorn',
+        guard:'veter',
+        child: [
+            {
+                href: '/vet/',
+                title: 'Vet Profiles',
+            },
         ]
     },
     {
         title: 'Signal',
         icon: 'fa fa-chart-area',
         badge:'New',
+        guard:'veter',
         child: [
             {
                 href: '/member/products',
@@ -34,17 +44,6 @@ export default  [
                 external:false
             },
             
-        ]
-    },
-    {
-        title: 'Article',
-        icon: 'fa fa-bullhorn',
-        child: [
-            {
-                href: '/member/blog/view-redirect',
-                title: 'All Posts',
-                external:true
-            },
         ]
     },
     {

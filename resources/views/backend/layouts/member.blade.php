@@ -41,7 +41,7 @@
     <div class="c-wrapper">
 
         <!-- Header Block -->
-        @include('backend.includes.header')
+        @include('backend.includes.member-header')
         <!-- / Header Block -->
 
         <div class="c-body">

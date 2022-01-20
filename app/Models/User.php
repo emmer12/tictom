@@ -10,8 +10,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Modules\Token\Entities\Token;
+use Modules\Veter\Entities\Vet;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\Permission\Traits\HasRoles;
+
 
 class User extends Authenticatable implements HasMedia, MustVerifyEmail
 {
@@ -89,5 +92,20 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
     public function routeNotificationForSlack($notification)
     {
         return env('SLACK_NOTIFICATION_WEBHOOK');
+    }
+
+    /**
+     * Get all of the tokens for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tokens()
+    {
+        return $this->hasMany(Token::class);
+    }
+
+    public function vets()
+    {
+        return $this->hasMany(Vet::class);
     }
 }

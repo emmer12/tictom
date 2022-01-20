@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use Modules\Token\Entities\Token;
 
 class FrontendController extends Controller
 {
@@ -15,7 +16,8 @@ class FrontendController extends Controller
     {
         $body_class = '';
 
-        return view('frontend.index', compact('body_class'));
+        $tokens=Token::orderBy('created_at','DESC')->paginate();
+        return view('frontend.index', compact('body_class','tokens'));
     }
 
     /**

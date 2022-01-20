@@ -1,7 +1,151 @@
-.custom-1 {
-  background-color: red;
-  position: absolute;
-  top: 0px;
+.hero {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(rgba(21, 60, 90, 0.59) 5%, white 25%, rgba(255, 255, 255, 0.5) 70%);
 }
 
+.hero .content {
+  height: 100%;
+  display: flex;
+}
 
+.hero .content .details {
+  width: 50%;
+  margin: auto;
+}
+
+.hero .content .details .contain {
+  margin-top: auto;
+  margin-left: 120px;
+}
+
+.hero .content .details .contain h1 {
+  font-size: 3.8rem;
+  font-weight: 700;
+  line-height: 61px;
+}
+
+.hero .content .illustration {
+  width: 50%;
+  margin: auto;
+}
+
+.navbar-main {
+  position: absolute !important;
+}
+
+.navbar-main .navbar-nav .nav-link {
+  color: #021e01 !important;
+  font-weight: 700;
+}
+
+.header {
+  margin: 10px 0px;
+}
+
+.header h1,
+.header h4 {
+  font-size: 42px;
+  line-height: 130%;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.header h1::after,
+.header h4::after {
+  content: "";
+  height: 2px;
+  width: 100px;
+  background: #356987;
+  border-radius: 3px;
+  position: absolute;
+  bottom: -3px;
+  right: 0px;
+  box-shadow: 28px 4px 0px rgba(53, 105, 135, 0.5);
+}
+
+.header h4 {
+  font-size: 24px;
+}
+
+.slick-track {
+  display: flex !important;
+}
+
+.slick-list {
+  padding: 20px 15px !important;
+  overflow-y: hidden;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #356987 !important;
+}
+
+.section-become {
+  background: #fafafa;
+  height: 300px;
+  display: flex;
+  align-items: center;
+}
+
+.footer {
+  background: #00010a;
+}
+
+.footer h6 {
+  color: #fff;
+  font-weight: 700;
+}
+
+.footer p,
+.footer a,
+.footer small {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    margin-bottom: 50px;
+  }
+
+  .hero .content {
+    flex-direction: column-reverse;
+  }
+
+  .hero .content .details {
+    width: 100%;
+    padding: 10px;
+    margin: initial;
+  }
+
+  .hero .content .details .contain {
+    margin-left: 10px;
+  }
+
+  .hero .content .details .contain h1 {
+    font-size: 1.8rem;
+    line-height: 31px;
+  }
+
+  .hero .content .illustration {
+    width: 100%;
+    margin: initial;
+  }
+}
+
+@media (min-width: 641.98px) and (max-width: 900.98px) {
+  .hero .content .details .contain {
+    margin-left: 50px;
+  }
+
+  .hero .content .details .contain h1 {
+    font-size: 2.8rem;
+    line-height: 40px;
+  }
+
+  .hero .content .details .illustration {
+    width: 50%;
+  }
+}
